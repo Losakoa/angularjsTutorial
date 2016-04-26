@@ -1,15 +1,19 @@
 angular.module('directoryApp',[])
 	.controller('directoryController', function($scope) {
-		$scope.list = [
+		
+		//adding a controllerAs refering to the controller itself so I do not need the $scope part
+		var dirList = this;
+
+		dirList.list = [
 			{name:'Carlos',age:29},
 			{name:'Sasha', age: 23},
 			{name:'John', age:40},
 			{name:'Mark', age: 44}
 		];
 
-		$scope.addPerson = function() {
-			$scope.list.push({name:$scope.name, age: $scope.age});
-			$scope.name = "";
-			$scope.age = 0;
+		dirList.addPerson = function() {
+			dirList.list.push({name:dirList.name, age: dirList.age});
+			dirList.name = "";
+			dirList.age = 0;
 		};
 	});
