@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="directoryApp">
+	<head>
+		<title> Angular JS stuff </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="directory.js"></script>
+	</head>
+
+	<!--directive that allows you to initialize data when template is loaded up-->
+	<body ng-controller="directoryController">
+		<input type="text" ng-model="search">
+		<ul>
+			<!-- ng-repeat goes through the list in ng-init -->
+			<li ng-repeat="item in list | filter:search">
+				{{item.name}} - {{item.age}}
+			</li>
+		</ul>
+		<form ng-submit="addPerson()">
+			<input type="text" placeholder="Name" ng-model="name">
+			<input type="number" placeholder="Age" ng-model="age">
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>	
