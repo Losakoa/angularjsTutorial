@@ -16,4 +16,10 @@ angular.module('directoryApp',[])
 			dirList.name = "";
 			dirList.age = 0;
 		};
+
+		dirList.removePerson = function() {
+			dirList.list.pop({name:dirList.name, age: dirList.age});
+			dirList.name = "";
+			dirList.age =  0;
+		};
 	});
